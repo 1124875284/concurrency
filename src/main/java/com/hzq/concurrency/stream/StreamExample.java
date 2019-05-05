@@ -4,24 +4,16 @@ package com.hzq.concurrency.stream;
 import org.junit.Test;
 
 import java.util.*;
-import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class StreamExample {
 
-    public static void main(String[] args) {
-        //testForeach();
-        //testFilter();
-        //testDistinct();
-        //testSorted();
-        testMap();
-    }
-
     /**
      * 普通遍历  foreach
      */
-    public static void testForeach() {
+    @Test
+    public void testForeach() {
         Stream<String> stream = Stream.of("huang", "zhi", "qiang");
         stream.forEach(str -> System.out.println(str));
     }
@@ -29,7 +21,8 @@ public class StreamExample {
     /**
      * 过滤条件 filter
      */
-    public static void testFilter() {
+    @Test
+    public void testFilter() {
         Stream<String> stream = Stream.of("huang", "zhi", "qiang", "hho");
         stream.filter(s -> s.length() == 3).forEach(s -> System.out.println("s = " + s));
     }
@@ -37,7 +30,8 @@ public class StreamExample {
     /**
      * 去除重复  distinct
      */
-    public static void testDistinct() {
+    @Test
+    public void testDistinct() {
         Stream<String> stream = Stream.of("huang", "zhi", "qiang", "hho", "qiang");
         stream.distinct().forEach(s -> System.out.println("s = " + s));
     }
@@ -45,6 +39,7 @@ public class StreamExample {
     /**
      * 按照指定条件（长度也可以不添加规则）排序  sorted()
      */
+    @Test
     public static void testSorted() {
         Stream<String> stream = Stream.of("huangg", "zhi", "qiangooo");
         stream.sorted((str1, str2) -> str1.length() - str2.length())
@@ -54,7 +49,8 @@ public class StreamExample {
     /**
      * 按照指定条件 进行转换  map()
      */
-    public static void testMap() {
+    @Test
+    public void testMap() {
         Stream<String> stream = Stream.of("huangg", "zhi", "qiangooo");
         stream.map(s -> s.toUpperCase()).forEach(s -> System.out.println("s = " + s));
     }
